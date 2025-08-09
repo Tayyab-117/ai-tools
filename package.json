@@ -2,25 +2,22 @@
   "name": "freeaihub-top10",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "next": "14.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@ffmpeg/ffmpeg": "0.12.7",
-    "tesseract.js": "4.1.1",
-    "pdf-lib": "1.17.1",
-    "@tensorflow/tfjs": "4.18.0",
-    "@tensorflow-models/body-pix": "2.2.0",
-    "upscaler": "1.9.2",
-    "@vladmandic/face-api": "1.7.13",
-    "@xenova/transformers": "2.16.0",
-    "rnnoise-wasm": "1.2.0"
+    "qrcode": "1.5.3"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
+    "@types/qrcode": "1.5.5",
     "autoprefixer": "10.4.17",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",
@@ -29,4 +26,3 @@
     "typescript": "5.4.5"
   }
 }
-
