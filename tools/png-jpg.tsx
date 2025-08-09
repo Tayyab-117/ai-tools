@@ -1,0 +1,6 @@
+'use client'
+import { useRef, useState } from 'react'
+export default function PNGJPG(){ const [img,setImg]=useState<HTMLImageElement|null>(null); const [fmt,setFmt]=useState<'image/jpeg'|'image/png'>('image/jpeg'); const cRef=useRef<HTMLCanvasElement>(null)
+  const onFile=(f:File)=>{ const url=URL.createObjectURL(f); const im=new Image(); im.onload=()=>setImg(im); im.src=url }
+  const download=()=>{ if(!img) return; const c=cRef.current!; c.width=img.naturalWidth; c.height=img.naturalHeight; const ctx=c.getContext('2d')!; ctx.drawImage(img,0,0); const a=document.createElement('a'); a.href=c.toDataURL(fmt); a.download= fmt==='image/jpeg'?'image.jpg':'image.png'; a.click() }
+  return (<div className="space-y-3">{!img && <input type="file" accept="image/*" className="input" onChange={e=>e.target.files && onFile(e.target.files[0])}/>}{img && <div className="space-y-3"><div className="card p-4 flex items-center gap-3"><select className="input w-48" value={fmt} onChange={e=>setFmt(e.target.value as any)}><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select><button className="btn-primary" onClick={download}>Download</button></div><div className="card p-4"><canvas ref={cRef} className="w-full border rounded"/></div></div>}</div>)}

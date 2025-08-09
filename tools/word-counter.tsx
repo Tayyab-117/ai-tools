@@ -1,13 +1,5 @@
 'use client'
 import { useMemo, useState } from 'react'
-function stats(t:string){ const words=(t.trim().match(/\b\w+\b/g)||[]).length, chars=t.length, minutes=Math.max(1,Math.round(words/200))
-  const sentences=Math.max(1,(t.match(/[.!?]/g)||[]).length); const syll=(t.match(/[aeiouy]{1,2}/gi)||[]).length; const flesch=206.835-1.015*(words/sentences)-84.6*(syll/words||0)
-  return {words,chars,minutes,flesch:Math.max(0,Math.min(100,flesch||0))}}
-export default function WordCounter(){ const [txt,setTxt]=useState('Paste your text here.'), s=useMemo(()=>stats(txt),[txt])
-  return (<div className="space-y-3"><textarea className="textarea" value={txt} onChange={e=>setTxt(e.target.value)}/>
-    <div className="card p-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
-      <div><div className="font-semibold">{s.words}</div><div className="text-gray-600">Words</div></div>
-      <div><div className="font-semibold">{s.chars}</div><div className="text-gray-600">Characters</div></div>
-      <div><div className="font-semibold">~{s.minutes} min</div><div className="text-gray-600">Reading time</div></div>
-      <div><div className="font-semibold">{Math.round(s.flesch)}</div><div className="text-gray-600">Reading ease</div></div></div></div>)
-}
+function stats(t:string){ const words=(t.trim().match(/\b\w+\b/g)||[]).length, chars=t.length, minutes=Math.max(1,Math.round(words/200)); const sentences=Math.max(1,(t.match(/[.!?]/g)||[]).length); const syll=(t.match(/[aeiouy]{1,2}/gi)||[]).length; const flesch=206.835-1.015*(words/sentences)-84.6*(syll/words||0); return {words,chars,minutes,flesch:Math.max(0,Math.min(100,flesch||0))} }
+export default function WC(){ const [txt,setTxt]=useState('Paste your text here.'), s=useMemo(()=>stats(txt),[txt])
+  return (<div className="space-y-3"><textarea className="textarea" value={txt} onChange={e=>setTxt(e.target.value)}/><div className="card p-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm"><div><div className="font-semibold">{s.words}</div><div className="text-gray-600">Words</div></div><div><div className="font-semibold">{s.chars}</div><div className="text-gray-600">Characters</div></div><div><div className="font-semibold">~{s.minutes} min</div><div className="text-gray-600">Reading time</div></div><div><div className="font-semibold">{Math.round(s.flesch)}</div><div className="text-gray-600">Reading ease</div></div></div></div>)}

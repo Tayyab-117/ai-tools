@@ -1,15 +1,16 @@
-# FreeAIHub — SEO‑ready Vercel template
+# FreeAIHub v5
 
-- Fully client‑side tools (privacy‑first).  
-- Registry pattern for adding tools fast.  
-- SEO content blocks, OG/Twitter meta, JSON‑LD for tools.  
-- Command Palette (⌘/Ctrl+K), Favorites, Recents.  
-- Contact form via `NEXT_PUBLIC_FORM_ENDPOINT` or mailto fallback.  
-- Donation/Payment via `NEXT_PUBLIC_DONATION_URL` (Stripe Payment Link).
+- 22 privacy‑first tools (text, data, images, utilities).
+- Consistent light UI, header/footer everywhere.
+- Per‑tool SEO content + JSON‑LD (SoftwareApplication + FAQ).
+- Detailed Privacy (GDPR‑friendly) & Terms.
+- Cookie banner for consent (minimal) — stored in localStorage.
+- Contact form via `NEXT_PUBLIC_FORM_ENDPOINT` or mailto fallback.
+- Sitemap at `/sitemap.xml` via app router (`app/sitemap.ts`).
 
 ## Deploy
-- Import repo to Vercel → Deploy (Next.js auto).
+1. Upload to GitHub → Vercel auto‑build (Next.js 14).
+2. (Optional) set env vars: `NEXT_PUBLIC_FORM_ENDPOINT`, `NEXT_PUBLIC_DONATION_URL`.
 
-## Env (optional)
-- `NEXT_PUBLIC_FORM_ENDPOINT` – a form endpoint like Formspree/Web3Forms.
-- `NEXT_PUBLIC_DONATION_URL` – Stripe Payment Link or BuyMeACoffee page.
+## Add a tool
+Create `tools/my-tool.tsx`, then add a dynamic import + entry in `lib/registry.tsx`.

@@ -1,0 +1,6 @@
+'use client'
+import { useRef, useState } from 'react'
+export default function Resizer(){ const [img,setImg]=useState<HTMLImageElement|null>(null); const [w,setW]=useState(400); const [h,setH]=useState(400); const cRef=useRef<HTMLCanvasElement>(null)
+  const onFile=(f:File)=>{ const url=URL.createObjectURL(f); const im=new Image(); im.onload=()=>{ setImg(im); setW(im.naturalWidth); setH(im.naturalHeight) }; im.src=url }
+  const download=()=>{ if(!img) return; const c=cRef.current!; c.width=w; c.height=h; const ctx=c.getContext('2d')!; ctx.drawImage(img,0,0,w,h); const a=document.createElement('a'); a.href=c.toDataURL('image/png'); a.download='resized.png'; a.click() }
+  return (<div className="space-y-3">{!img && <input type="file" accept="image/*" className="input" onChange={e=>e.target.files && onFile(e.target.files[0])}/>}{img && <div className="space-y-3"><div className="card p-4 flex items-center gap-3"><input type="number" className="input w-28" value={w} onChange={e=>setW(parseInt(e.target.value||'0'))}/><input type="number" className="input w-28" value={h} onChange={e=>setH(parseInt(e.target.value||'0'))}/><button className="btn-primary" onClick={download}>Download PNG</button></div><div className="card p-4"><canvas ref={cRef} className="max-w-full"/></div></div>}</div>)}

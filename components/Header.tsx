@@ -1,5 +1,6 @@
 'use client'
-import Link from 'next/link'; import { useState } from 'react'
+import Link from 'next/link'
+import { useState } from 'react'
 export default function Header(){
   const [open,setOpen]=useState(false)
   return (<header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur">

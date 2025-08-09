@@ -9,3 +9,4 @@
 .textarea { @apply min-h-[200px]; }
 .badge { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-xs bg-white; }
 .prose { @apply leading-relaxed; }
+.cookie { @apply fixed bottom-4 left-1/2 z-50 -translate-x-1/2 card p-4 max-w-xl w-[92%]; }
