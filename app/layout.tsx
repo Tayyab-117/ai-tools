@@ -2,31 +2,14 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import CookieBanner from '../components/CookieBanner'
 
 export const metadata: Metadata = {
-  title: 'FreeAIHub — Free, Private, Browser‑Only Tools',
-  description: 'A growing collection of privacy‑first AI & web tools. No sign‑up, no uploads.',
+  title: 'FreeAIHub — 10 Premium‑grade Tools, Free & Private',
+  description: 'Top 10 tools people usually pay for: background remover, upscaler, OCR‑to‑PDF, video converter, transcription, denoise, face blur, PDF merge/split, EXIF remove, image convert.',
   manifest: '/manifest.webmanifest',
-  themeColor: '#3B82F6',
-  alternates: { canonical: '/' },
-  openGraph: {
-    title: 'FreeAIHub — Free, Private, Browser‑Only Tools',
-    description: 'No sign‑up. No uploads. Tools for images, text, data, and utilities.',
-    type: 'website',
-  },
-  twitter: { card: 'summary_large_image', title: 'FreeAIHub', description: 'Free, private tools in your browser.' }
+  themeColor: '#3B82F6'
+}
+export default function RootLayout({ children }:{ children:React.ReactNode }){
+  return (<html lang="en"><body><Header/>{children}<Footer/></body></html>)
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <Header/>
-        {children}
-        <Footer/>
-        <CookieBanner/>
-      </body>
-    </html>
-  )
-}
