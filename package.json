@@ -13,6 +13,12 @@
     "react-dom": "18.2.0",
     "qrcode": "1.5.3"
   },
+  "optionalDependencies": {
+    "@next/swc-linux-x64-gnu": "14.2.5",
+    "@next/swc-linux-x64-musl": "14.2.5",
+    "@next/swc-linux-arm64-gnu": "14.2.5",
+    "@next/swc-linux-arm64-musl": "14.2.5"
+  },
   "devDependencies": {
     "@types/node": "20.12.7",
     "@types/react": "18.2.66",
