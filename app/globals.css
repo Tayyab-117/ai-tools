@@ -1,12 +1,121 @@
-@tailwind base; @tailwind components; @tailwind utilities;
-:root { color-scheme: light; } html { scroll-behavior: smooth; } body { @apply bg-muted text-ink; }
-.container { @apply mx-auto max-w-7xl px-4; }
-.card { @apply rounded-2xl border border-gray-200 bg-surface shadow-soft; }
-.btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition; }
-.btn-primary { @apply btn bg-brand text-white hover:opacity-90; }
-.btn-secondary { @apply btn bg-gray-100 text-ink hover:bg-gray-200; }
-.input, .textarea, select { @apply w-full rounded-lg border border-gray-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand/40; }
-.textarea { @apply min-h-[200px]; }
-.badge { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-xs bg-white; }
-.prose { @apply leading-relaxed; }
-.cookie { @apply fixed bottom-4 left-1/2 z-50 -translate-x-1/2 card p-4 max-w-xl w-[92%]; }
+/* app/globals.css */
+
+/* Tailwind base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base / Resets ---------- */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-muted text-ink antialiased;
+}
+
+/* Make links clearly focusable and accessible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35); /* brand */
+  border-radius: 10px;
+}
+
+/* ---------- Shared Layout Tokens ---------- */
+.container {
+  @apply mx-auto max-w-7xl px-4;
+}
+
+.card {
+  @apply rounded-2xl border border-gray-200 bg-white shadow-soft;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border border-gray-200 bg-white px-2 py-0.5 text-xs;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition
+         select-none;
+}
+
+.btn-primary {
+  @apply btn bg-brand text-white hover:opacity-90 active:opacity-80;
+}
+
+.btn-secondary {
+  @apply btn bg-gray-100 text-ink hover:bg-gray-200 active:bg-gray-300;
+}
+
+/* Inputs */
+.input,
+.textarea,
+select {
+  @apply w-full rounded-lg border border-gray-200 bg-white px-3 py-2 outline-none
+         focus:ring-2 focus:ring-brand/40;
+}
+
+.textarea {
+  @apply min-h-[200px];
+}
+
+/* Typography helpers */
+.prose {
+  @apply leading-relaxed;
+}
+
+.prose a {
+  @apply text-brand underline underline-offset-2;
+}
+
+/* Code blocks inside prose */
+.prose code {
+  @apply rounded bg-gray-100 px-1 py-0.5 text-[0.9em];
+}
+
+/* Tables inside prose */
+.prose table {
+  @apply w-full border-collapse text-sm;
+}
+.prose th,
+.prose td {
+  @apply border border-gray-200 px-3 py-2;
+}
+.prose thead th {
+  @apply bg-gray-50;
+}
+
+/* ---------- Small Responsive Tweaks ---------- */
+@media (max-width: 640px) {
+  .btn {
+    padding-block: 0.75rem; /* bigger touch target on phones */
+  }
+  .textarea {
+    min-height: 180px;
+  }
+  .card {
+    border-radius: 1rem;
+  }
+}
+
+/* ---------- Optional: subtle scrollbar (WebKit) ---------- */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.14);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
