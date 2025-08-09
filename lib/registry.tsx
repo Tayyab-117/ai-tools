@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 
+
 export const tools = [
 { slug: "background-remover", name: "Background Remover (People)", category: "images", tagline: "Remove background from photos of people \u2014 locally with BodyPix.", component: dynamic(()=>import('../tools/background-remover'),{ ssr:false }), seo: {"longDescription": "Automatically remove the background from portraits using a person segmentation model (BodyPix) that runs entirely in your browser. Great for product shots, profile images, and thumbnails without sending images to a server.", "howTo": ["Upload a photo with one or more people.", "Click \u201cRemove background\u201d.", "Download the transparent PNG."], "useCases": ["Profile headshots", "E\u2011commerce photos", "Social thumbnails"], "faq": [{"q": "Does it work on objects?", "a": "This model targets people. For objects, results vary."}]} },
 { slug: "image-upscaler", name: "Image Upscaler (2\u00d7\u20134\u00d7)", category: "images", tagline: "Enhance low\u2011res images with a super\u2011resolution model (client\u2011side).", component: dynamic(()=>import('../tools/image-upscaler'),{ ssr:false }), seo: {"longDescription": "Increase image resolution by 2\u20134\u00d7 using a super\u2011resolution model in your browser. Helpful for small logos, screenshots, or scans you need to sharpen before publishing.", "howTo": ["Upload an image.", "Choose 2\u00d7, 3\u00d7, or 4\u00d7.", "Upscale and download the PNG."], "useCases": ["Sharpen logos & icons", "Improve old scans", "Recover detail for web use"]} },
@@ -12,4 +13,7 @@ export const tools = [
 { slug: "exif-remover", name: "Image EXIF Remover", category: "images", tagline: "Strip location & camera metadata from photos via re\u2011encode.", component: dynamic(()=>import('../tools/exif-remover'),{ ssr:false }), seo: {"longDescription": "Remove EXIF metadata by redrawing the image to a canvas, producing a clean re\u2011encode. Keep your location and camera details private when sharing photos.", "howTo": ["Upload a photo.", "Click download to save a clean copy."], "useCases": ["Privacy for sharing", "Reduce metadata bloat", "Sanitize uploads"]} },
 { slug: "image-converter", name: "Image Converter (WEBP/PNG/JPG)", category: "images", tagline: "Convert images locally between WEBP, PNG, and JPG.", component: dynamic(()=>import('../tools/image-converter'),{ ssr:false }), seo: {"longDescription": "Quickly convert images between WEBP, PNG, and JPG in your browser. Handy for optimizing assets for the web without leaving your tab.", "howTo": ["Upload an image.", "Choose output format.", "Download converted file."], "useCases": ["Prepare assets", "Compress for web", "Compatibility fixes"]} }
 ] as const
+
+const AudioDenoise = dynamic(()=>import('../tools/audio-denoise'), { ssr:false })
+
 
