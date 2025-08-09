@@ -1,76 +1,48 @@
 'use client'
-import Link from 'next/link'
-import { isFav, toggleFav } from '../../lib/storage'
+import { isFav, toggleFav } from '../../lib/storage' // adjust ../../ -> ../ if your file lives in /components
 import { useEffect, useState } from 'react'
-import type { ToolDefinition } from '../../lib/types'
+import Link from 'next/link'
 
-export default function ToolShell({ tool, children }:{ tool: ToolDefinition, children: React.ReactNode }){
+export default function ToolShell({
+  slug,
+  title,
+  tagline,
+  children,
+}: {
+  slug: string
+  title: string
+  tagline: string
+  children: React.ReactNode
+}) {
   const [fav, setFav] = useState(false)
-  useEffect(()=>{ setFav(isFav(tool.slug)) },[tool.slug])
-  const onFav = () => { toggleFav(tool.slug); setFav(isFav(tool.slug)) }
+  useEffect(() => setFav(isFav(slug)), [slug])
 
   return (
     <div className="container py-8">
-      <nav className="mb-3 text-xs text-muted-foreground">
-        <Link href="/">Home</Link> <span className="px-1">/</span>
-        <Link href="/tools">Tools</Link> <span className="px-1">/</span>
-        <span>{tool.name}</span>
+      <nav className="text-sm text-gray-500 mb-3">
+        <div className="flex items-center gap-2">
+          <Link href="/" className="hover:underline">Home</Link><span>/</span>
+          <Link href="/tools" className="hover:underline">Tools</Link><span>/</span>
+          <span>{title}</span>
+        </div>
       </nav>
 
-      <div className="mb-1 flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">{tool.name}</h1>
-        <div className="flex gap-2">
-          <button className="btn btn-secondary" onClick={onFav}>{fav? '★ Favorited' : '☆ Favorite'}</button>
-          <Link href="/tools" className="btn btn-secondary">← Back to tools</Link>
-        </div>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">{title}</h1>
+        <button
+          className="btn-secondary"
+          onClick={() => {
+            toggleFav(slug)
+            setFav(isFav(slug))
+          }}
+        >
+          {fav ? '★ Favorited' : '☆ Favorite'}
+        </button>
       </div>
-      <p className="text-sm text-muted-foreground">{tool.tagline}</p>
 
-      <div className="mt-6 grid gap-6 md:grid-cols-3">
-        <div className="md:col-span-2">
-          <div className="card p-4">{children}</div>
-        </div>
-        <aside className="space-y-4">
-          {tool.seo?.longDescription && (
-            <div className="card p-4">
-              <div className="mb-1 text-sm font-semibold">About this tool</div>
-              <p className="text-sm text-muted-foreground">{tool.seo.longDescription}</p>
-            </div>
-          )}
-          {tool.howTo && tool.howTo.length>0 && (
-            <div className="card p-4">
-              <div className="mb-1 text-sm font-semibold">How to use</div>
-              <ol className="list-decimal pl-4 text-sm text-muted-foreground space-y-1">
-                {tool.howTo.map((s,i)=>(<li key={i}>{s}</li>))}
-              </ol>
-            </div>
-          )}
-          {tool.useCases && tool.useCases.length>0 && (
-            <div className="card p-4">
-              <div className="mb-1 text-sm font-semibold">Use cases</div>
-              <ul className="list-disc pl-4 text-sm text-muted-foreground space-y-1">
-                {tool.useCases.map((s,i)=>(<li key={i}>{s}</li>))}
-              </ul>
-            </div>
-          )}
-          {tool.faq && tool.faq.length>0 && (
-            <div className="card p-4">
-              <div className="mb-1 text-sm font-semibold">FAQs</div>
-              <ul className="space-y-2 text-sm">
-                {tool.faq.map((f,i)=>(<li key={i}><div className="font-medium">{f.q}</div><div className="text-muted-foreground">{f.a}</div></li>))}
-              </ul>
-            </div>
-          )}
-          {tool.related && tool.related.length>0 && (
-            <div className="card p-4">
-              <div className="mb-1 text-sm font-semibold">Related tools</div>
-              <div className="grid gap-2">
-                {tool.related.map(slug=>(<Link key={slug} href={`/tools/${slug}`} className="rounded-lg border p-2 text-sm hover:bg-muted/60">{slug}</Link>))}
-              </div>
-            </div>
-          )}
-        </aside>
-      </div>
+      <p className="text-gray-600 mt-1">{tagline}</p>
+
+      <div className="mt-4">{children}</div>
     </div>
   )
 }
