@@ -1,0 +1,1 @@
+export default function Contact(){return (<div className='container py-10'><h1 className='text-2xl font-semibold'>Contact</h1><p className='mt-2 text-sm text-muted-foreground'>Email: hello@example.com</p></div>)}

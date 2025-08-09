@@ -1,0 +1,1 @@
+export default function Privacy(){return (<div className='container py-10'><h1 className='text-2xl font-semibold'>Privacy</h1><p className='mt-2 text-sm text-muted-foreground'>Files never leave your device. All processing happens locally in your browser. We do not collect your files or store them on a server.</p></div>)}

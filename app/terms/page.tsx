@@ -1,0 +1,1 @@
+export default function Terms(){return (<div className='container py-10'><h1 className='text-2xl font-semibold'>Terms</h1><p className='mt-2 text-sm text-muted-foreground'>This site is provided as‑is with no warranties. Use at your own risk. Do not upload illegal content.</p></div>)}
