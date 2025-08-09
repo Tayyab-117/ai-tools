@@ -36,7 +36,7 @@ export default function ImageCompressor(){
     <div className="space-y-4">
       {!img && <DropZone onFiles={handleFiles} accept="image/*"/>}
       {img && (
-        <div className="space-y-4">
+        <div className="grid gap-4 md:grid-cols-2">
           <div className="card p-4">
             <img src={img.src} alt="preview" className="w-full rounded" />
             <div className="mt-3 flex flex-wrap items-center gap-3">

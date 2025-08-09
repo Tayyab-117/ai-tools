@@ -12,7 +12,7 @@ export default function ToolPage(){
   if (!tool) return notFound()
   const Comp = tool.component as any
   return (
-    <ToolShell slug={tool.slug} title={tool.name} tagline={tool.tagline}>
+    <ToolShell tool={tool}>
       <Comp />
     </ToolShell>
   )

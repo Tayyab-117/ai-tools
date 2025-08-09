@@ -4,26 +4,26 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://example.com'),
   title: {
     default: 'FreeAIHub — Free, private AI tools that run in your browser',
-    template: '%s — FreeAIHub'
+    template: '%s · FreeAIHub'
   },
   description: 'No sign-up. No limits. Files never leave your device. PWA-ready.',
-  manifest: '/manifest.webmanifest',
-  themeColor: '#3B82F6',
-  icons: { icon: '/favicon.ico' },
   openGraph: {
-    title: 'FreeAIHub',
-    description: 'Free, private AI tools that run in your browser. No sign-up. No limits.',
-    url: 'https://free-ai-tools-hub.vercel.app',
-    siteName: 'FreeAIHub',
-    type: 'website'
+    type: 'website',
+    title: 'FreeAIHub — Free AI tools (no upload, no limits)',
+    description: 'Free, private, client-side tools for images, text, CSVs and more.',
+    url: 'https://example.com',
+    siteName: 'FreeAIHub'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FreeAIHub — Free, private AI tools',
-    description: 'Run AI tools in your browser. No upload. No limits.'
-  }
+    description: 'Run tools in your browser. No accounts.',
+  },
+  manifest: '/manifest.webmanifest',
+  themeColor: '#3B82F6'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

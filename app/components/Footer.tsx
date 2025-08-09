@@ -11,23 +11,24 @@ export default function Footer(){
           <div>
             <h4 className="text-sm font-semibold">Explore</h4>
             <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li><a href="/#featured">Popular tools</a></li>
-              <li><a href="/#categories">Categories</a></li>
-              <li><a href="/#faq">FAQ</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold">Legal</h4>
-            <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+              <li><Link href="/tools">All tools</Link></li>
+              <li><Link href="/faq">FAQs</Link></li>
               <li><Link href="/privacy">Privacy</Link></li>
               <li><Link href="/terms">Terms</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold">Support</h4>
+            <h4 className="text-sm font-semibold">Community</h4>
             <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li><Link href="/donate">Donate</Link></li>
               <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/donate">Support the project</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold">Status</h4>
+            <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+              <li>Open‑source template</li>
+              <li>Client‑side only</li>
             </ul>
           </div>
         </div>

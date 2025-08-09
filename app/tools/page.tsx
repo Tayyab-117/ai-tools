@@ -7,7 +7,7 @@ export default function ToolsDirectory(){
   const [q, setQ] = useState('')
   const [cat, setCat] = useState<string>('all')
   const list = useMemo(()=>{
-    return tools.filter(t => (cat==='all' || t.category===cat) && (t.name + ' ' + (t.keywords||[]).join(' ') + ' ' + t.tagline).toLowerCase().includes(q.toLowerCase()))
+    return tools.filter(t => (cat==='all' || t.category===cat) && (t.name + ' ' + (t.keywords||[]).join(' ') + ' ' + t.tagline + ' ' + (t.seo?.longDescription||'')).toLowerCase().includes(q.toLowerCase()))
   },[q, cat])
   return (
     <div className="container py-10">
@@ -21,13 +21,12 @@ export default function ToolsDirectory(){
       <div className="grid gap-4 md:grid-cols-3">
         {list.map(t => (
           <Link key={t.slug} href={`/tools/${t.slug}`} className="card p-4 hover:bg-muted/50">
-            <div className="text-base font-semibold">{t.name} <span className="badge ml-2">{t.badge||'Local'}</span></div>
+            <div className="text-base font-semibold">{t.name} <span className="badge ml-2">{t.badge||'Free'}</span></div>
             <div className="text-sm text-muted-foreground">{t.tagline}</div>
           </Link>
         ))}
         {list.length===0 && <div className="text-sm text-muted-foreground">No tools found.</div>}
       </div>
-      <p className="mt-6 text-sm text-muted-foreground">Looking for something else? Hit <span className="badge">⌘/Ctrl + K</span> to open the command palette and search across all tools.</p>
     </div>
   )
 }

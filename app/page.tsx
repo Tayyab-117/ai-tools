@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { tools, categories } from '../lib/registry'
 
 export default function Home(){
-  const featured = tools.slice(0,6)
+  const featured = tools.slice(0,9)
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-muted/30">
+    <main className="min-h-screen bg-gradient-to-b from-white to-muted/30">
       <section className="relative border-b">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.12),transparent_40%),radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.10),transparent_40%)]"/>
         <div className="container grid items-center gap-8 py-12 md:grid-cols-2">
           <div>
-            <h1 className="text-3xl font-semibold leading-tight md:text-5xl">Free AI tools that run <span className="underline decoration-primary/40 underline-offset-4">in your browser</span></h1>
-            <p className="mt-3 max-w-prose text-muted-foreground">No sign‑up. No limits. Files never leave your device. Open‑model magic for documents, images, and more.</p>
+            <h1 className="text-3xl font-semibold leading-tight md:text-5xl">Free AI & web tools that run <span className="underline decoration-primary/40 underline-offset-4">in your browser</span></h1>
+            <p className="mt-3 max-w-prose text-muted-foreground">Inspired by popular “all-in-one” tool sites, but privacy-first: no accounts, no uploads, no limits. Use 100% local tools for text, images, CSVs, and more.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a className="btn btn-primary" href="#featured">Try popular</a>
               <Link className="btn btn-secondary" href="/tools">Browse all tools</Link>
@@ -20,10 +20,11 @@ export default function Home(){
               <span className="badge">Privacy‑first</span>
               <span className="badge">Works offline (PWA)</span>
               <span className="badge">Unlimited usage</span>
+              <span className="badge">No watermark</span>
             </div>
           </div>
           <div className="card p-4">
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-3">
               {featured.map(t => (
                 <Link key={t.slug} href={`/tools/${t.slug}`} className="card p-4 hover:bg-muted/50">
                   <div className="text-sm font-semibold">{t.name}</div>
@@ -62,7 +63,7 @@ export default function Home(){
       <section id="featured" className="container py-10">
         <div className="mb-6 flex items-end justify-between">
           <h2 className="text-2xl font-semibold">Popular this week</h2>
-          <div className="text-xs text-muted-foreground">Unlimited • No watermark • Works offline</div>
+          <div className="text-xs text-muted-foreground">No sign‑up • No watermark • Works offline</div>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {featured.map(t => (
@@ -75,29 +76,15 @@ export default function Home(){
         </div>
       </section>
 
-      <section id="seo" className="container py-10">
-        <h2 className="mb-3 text-2xl font-semibold">Why FreeAIHub?</h2>
-        <div className="prose prose-sm max-w-none">
-          <p><strong>FreeAIHub</strong> provides privacy‑first AI utilities for images, documents, and productivity — all client‑side. Because your data never leaves your device, it&rsquo;s ideal for sensitive work and teams with strict data policies.</p>
-          <p>Each tool is lightweight, installable as a PWA, and designed for speed. No sign‑ups, no quotas, and no watermarks.</p>
-          <h3>What you can do here</h3>
-          <ul>
-            <li>Compress and convert images for the web.</li>
-            <li>Manually remove backgrounds for product shots.</li>
-            <li>Clean CSV files by trimming and deduplicating.</li>
-          </ul>
-        </div>
+      <section className="container py-10 prose prose-lg">
+        <h2>Why we’re different</h2>
+        <p>Sites like TinyWow and 10015.io bundle many tools together, but often upload files to servers. FreeAIHub keeps everything in your browser, so your data never leaves your device.</p>
+        <ul>
+          <li>Local‑only processing for privacy.</li>
+          <li>Fast, installable PWA.</li>
+          <li>Simple UI with favorites and recent tools.</li>
+        </ul>
       </section>
-
-      <section id="faq" className="container py-10">
-        <h2 className="mb-4 text-2xl font-semibold">FAQ</h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          <details className="rounded border p-3"><summary className="font-medium cursor-pointer">Do you upload my files?</summary><p className="mt-2 text-sm text-muted-foreground">No. All processing happens locally in your browser.</p></details>
-          <details className="rounded border p-3"><summary className="font-medium cursor-pointer">Is it really free?</summary><p className="mt-2 text-sm text-muted-foreground">Yes. No limits, no watermarks.</p></details>
-          <details className="rounded border p-3"><summary className="font-medium cursor-pointer">Can I use it offline?</summary><p className="mt-2 text-sm text-muted-foreground">Yes. Install it as a PWA from your browser menu.</p></details>
-          <details className="rounded border p-3"><summary className="font-medium cursor-pointer">How do I request a new tool?</summary><p className="mt-2 text-sm text-muted-foreground">Open an issue on GitHub or contact us from the site.</p></details>
-        </div>
-      </section>
-    </div>
+    </main>
   )
 }

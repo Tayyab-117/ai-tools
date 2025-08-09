@@ -13,7 +13,7 @@ export default function CommandPalette({ open, onClose }: { open: boolean, onClo
   const list = useMemo(()=>{
     const base = tools
     if (!q) return base
-    return base.filter(t => (t.name + ' ' + (t.keywords||[]).join(' ') + ' ' + t.tagline).toLowerCase().includes(q.toLowerCase()))
+    return base.filter(t => (t.name + ' ' + (t.keywords||[]).join(' ') + ' ' + t.tagline + ' ' + (t.seo?.longDescription||'')).toLowerCase().includes(q.toLowerCase()))
   },[q])
   return (
     <div className="fixed inset-0 z-50 bg-black/40" onClick={onClose}>
@@ -41,7 +41,7 @@ export default function CommandPalette({ open, onClose }: { open: boolean, onClo
           <div className="mt-3 grid gap-2 max-h-72 overflow-auto">
             {list.map(t=> (
               <button key={t.slug} className="rounded-lg border p-3 text-left hover:bg-muted" onClick={()=>{ saveRecent(t.slug); router.push(`/tools/${t.slug}`); onClose() }}>
-                <div className="text-sm font-medium">{t.name} <span className="badge ml-2">{t.badge||'Local'}</span></div>
+                <div className="text-sm font-medium">{t.name} <span className="badge ml-2">{t.badge||'Free'}</span></div>
                 <div className="text-xs text-muted-foreground">{t.tagline}</div>
               </button>
             ))}

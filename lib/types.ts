@@ -1,14 +1,6 @@
 import type { ComponentType } from 'react'
 export type ToolCategory = 'documents'|'images'|'audio'|'productivity'
 
-export interface ToolSEO {
-  longDescription?: string
-  howTo?: string[]
-  useCases?: string[]
-  faq?: { q: string, a: string }[]
-  related?: string[]
-}
-
 export interface ToolDefinition {
   slug: string
   name: string
@@ -18,5 +10,9 @@ export interface ToolDefinition {
   component: ComponentType<any>
   keywords?: string[]
   badge?: string
-  seo?: ToolSEO
+  seo?: { longDescription?: string }
+  howTo?: string[]
+  useCases?: string[]
+  faq?: { q: string, a: string }[]
+  related?: string[]
 }

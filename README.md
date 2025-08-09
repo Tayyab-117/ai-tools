@@ -1,16 +1,15 @@
-# FreeAIHub — Scalable, Vercel-ready AI Tools Hub (SEO Enhanced)
+# FreeAIHub — SEO‑ready Vercel template
 
-- Registry-driven tools
-- Persistent Header/Footer
-- Rich tool pages (About / How-to / Use cases / FAQ / Related)
-- PWA + COOP/COEP headers
-- Ready for Vercel
+- Fully client‑side tools (privacy‑first).  
+- Registry pattern for adding tools fast.  
+- SEO content blocks, OG/Twitter meta, JSON‑LD for tools.  
+- Command Palette (⌘/Ctrl+K), Favorites, Recents.  
+- Contact form via `NEXT_PUBLIC_FORM_ENDPOINT` or mailto fallback.  
+- Donation/Payment via `NEXT_PUBLIC_DONATION_URL` (Stripe Payment Link).
 
-## Develop
-```bash
-npm i
-npm run dev
-```
+## Deploy
+- Import repo to Vercel → Deploy (Next.js auto).
 
-## Deploy (from Git)
-Connect the repo to Vercel → Import → Deploy.
+## Env (optional)
+- `NEXT_PUBLIC_FORM_ENDPOINT` – a form endpoint like Formspree/Web3Forms.
+- `NEXT_PUBLIC_DONATION_URL` – Stripe Payment Link or BuyMeACoffee page.
