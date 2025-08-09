@@ -1,0 +1,1 @@
+export default function About(){return (<div className='container py-10'><h1 className='text-2xl font-semibold mb-2'>About</h1><p className='text-sm text-gray-700'>FreeAIHub is an open collection of privacy‑first tools built with web technologies.</p></div>)}

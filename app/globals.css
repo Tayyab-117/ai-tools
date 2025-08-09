@@ -1,16 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root { color-scheme: light dark; }
-html { scroll-behavior: smooth; }
-body { @apply bg-background text-foreground; }
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { color-scheme: light; } html { scroll-behavior: smooth; } body { @apply bg-muted text-ink; }
 .container { @apply mx-auto max-w-7xl px-4; }
-.card { @apply rounded-2xl border bg-card shadow-soft; }
+.card { @apply rounded-2xl border border-gray-200 bg-surface shadow-soft; }
 .btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition; }
-.btn-primary { @apply btn bg-primary text-white hover:opacity-90; }
-.btn-secondary { @apply btn bg-muted hover:opacity-90; }
-.link { @apply underline underline-offset-4 hover:opacity-80; }
-.badge { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-xs; }
-kbd { @apply rounded bg-muted px-2 py-1 text-[10px]; }
-.prose-lg p { @apply leading-7; }
+.btn-primary { @apply btn bg-brand text-white hover:opacity-90; }
+.btn-secondary { @apply btn bg-gray-100 text-ink hover:bg-gray-200; }
+.input, .textarea, select { @apply w-full rounded-lg border border-gray-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand/40; }
+.textarea { @apply min-h-[200px]; }
+.badge { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-xs bg-white; }
+.prose { @apply leading-relaxed; }
