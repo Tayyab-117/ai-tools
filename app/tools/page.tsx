@@ -27,6 +27,7 @@ export default function ToolsDirectory(){
         ))}
         {list.length===0 && <div className="text-sm text-muted-foreground">No tools found.</div>}
       </div>
+      <p className="mt-6 text-sm text-muted-foreground">Looking for something else? Hit <span className="badge">⌘/Ctrl + K</span> to open the command palette and search across all tools.</p>
     </div>
   )
 }

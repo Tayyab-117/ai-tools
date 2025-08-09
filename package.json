@@ -1,6 +1,6 @@
 {
   "name": "free-ai-tools-hub",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,6 +19,7 @@
     "@types/node": "20.12.7",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
+    "@types/papaparse": "5.3.14",
     "autoprefixer": "10.4.17",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",

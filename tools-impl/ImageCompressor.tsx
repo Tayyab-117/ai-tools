@@ -36,7 +36,7 @@ export default function ImageCompressor(){
     <div className="space-y-4">
       {!img && <DropZone onFiles={handleFiles} accept="image/*"/>}
       {img && (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="space-y-4">
           <div className="card p-4">
             <img src={img.src} alt="preview" className="w-full rounded" />
             <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -48,8 +48,8 @@ export default function ImageCompressor(){
               <label className="text-sm ml-4">Quality</label>
               <input type="range" min={0.4} max={1} step={0.05} value={quality} onChange={e=>setQuality(parseFloat(e.target.value))} />
               <span className="text-sm">{Math.round(quality*100)}%</span>
+              <button className="btn btn-primary ml-auto" onClick={download}>Download</button>
             </div>
-            <button className="btn btn-primary mt-3" onClick={download}>Download</button>
           </div>
           <div className="card p-4">
             <div className="text-sm font-semibold mb-2">Output preview</div>

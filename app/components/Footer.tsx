@@ -11,9 +11,9 @@ export default function Footer(){
           <div>
             <h4 className="text-sm font-semibold">Explore</h4>
             <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li><a href="#featured">Popular tools</a></li>
-              <li><a href="#categories">Categories</a></li>
-              <li><a href="#how">How it works</a></li>
+              <li><a href="/#featured">Popular tools</a></li>
+              <li><a href="/#categories">Categories</a></li>
+              <li><a href="/#faq">FAQ</a></li>
             </ul>
           </div>
           <div>

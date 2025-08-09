@@ -23,9 +23,9 @@ export default function Header() {
           <span className="badge ml-1">Free & Private</span>
         </Link>
         <nav className="hidden gap-4 md:flex">
-          <a href="#categories" className="btn btn-secondary">Categories</a>
-          <a href="#featured" className="btn btn-secondary">Featured</a>
-          <a href="#how" className="btn btn-secondary">How it works</a>
+          <a href="/#categories" className="btn btn-secondary">Categories</a>
+          <a href="/#featured" className="btn btn-secondary">Featured</a>
+          <a href="/#faq" className="btn btn-secondary">FAQ</a>
           <Link href="/tools" className="btn btn-primary">All tools</Link>
           <button className="btn btn-secondary" onClick={()=>setOpen(true)}>Search <kbd className="ml-2">⌘/Ctrl + K</kbd></button>
         </nav>
